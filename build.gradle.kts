@@ -5,6 +5,7 @@ plugins {
 }
 
 object Groups {
+    const val kotlin = "org.jetbrains.kotlin"
     const val ktor = "io.ktor"
     const val gcp = "com.google.cloud"
     const val jackson_core = "com.fasterxml.jackson.core"
@@ -12,6 +13,9 @@ object Groups {
 
 catalog {
     versionCatalog {
+        version("kotlin", "1.6.0")
+        alias("kotlin-bom").to(Groups.kotlin, "kotlin-bom").versionRef("kotlin")
+
         version("ktor", "1.6.5")
         alias("ktor-server").to(Groups.ktor, "ktor-server").versionRef("ktor")
         alias("ktor-client-auth-jvm").to(Groups.ktor, "ktor-client-auth-jvm").versionRef("ktor")
