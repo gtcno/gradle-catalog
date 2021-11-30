@@ -10,17 +10,12 @@ catalog {
     }
 }
 
-val tomlFile = layout.buildDirectory.file("/libs.versions.toml")
-val tomlArtifact = artifacts.add("archives", tomlFile.get().asFile) {
-    type = "toml"
-}
 
 publishing {
     publications {
         create<MavenPublication>("maven") {
+            this.version = "v2.0.0"
             this.groupId = "no.gtc.common"
-            this.artifactId = "versionCatalog"
-            this.artifact(tomlArtifact)
             from(components["versionCatalog"])
         }
     }
