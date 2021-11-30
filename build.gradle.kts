@@ -1,5 +1,5 @@
 plugins {
-    `base`
+    base
     `version-catalog`
     `maven-publish`
 }
@@ -40,7 +40,8 @@ catalog {
 
 publishing {
     publications {
-        create<MavenPublication>("catalog") {
+        create<MavenPublication>("maven") {
+            this.version = "v1.0.0"
             this.groupId = "no.gtc.common"
             this.artifactId = "versionCatalog"
             from(components["versionCatalog"])
