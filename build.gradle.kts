@@ -14,7 +14,8 @@ catalog {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            this.version = "v2.0.0"
+            this.version = "v4.0.0"
+            this.artifactId = "versionCatalog"
             this.groupId = "no.gtc.common"
             from(components["versionCatalog"])
         }
