@@ -12,6 +12,11 @@ catalog {
 
 
 publishing {
+    repositories {
+        maven {
+            url = uri("https://maven.pkg.github.com/gtcno/gradle-catalog")
+        }
+    }
     publications {
         create<MavenPublication>("maven") {
             this.groupId = "com.github.gtcno"
