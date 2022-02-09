@@ -21,3 +21,4 @@ jobs:
         run: ./gradlew build publish -PRELEASE_TAG=${{ env.RELEASE_TAG }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ env.RELEASE_TAG }}
