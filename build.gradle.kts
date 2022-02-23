@@ -22,5 +22,10 @@ repositories {
 
 
 publishing {
+    publications {
+        create<MavenPublication>("pluginMaven") {
+            this.groupId = "com.github.gtcno"
+        }
+    }
 }
 
