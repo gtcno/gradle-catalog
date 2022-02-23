@@ -4,10 +4,14 @@ plugins {
     `kotlin-dsl`
 }
 
-gradlePlugin{
-    plugins{
+group = "no.nav.dagpenger"
+version = "0.0.1"
+
+
+gradlePlugin {
+    plugins {
         create("kotlin-app") {
-            id = "no.nav.dagpenger"
+            id = "kotlin-app"
             implementationClass = "KotlinAppConventionsPlugin"
         }
     }
@@ -22,10 +26,5 @@ repositories {
 
 
 publishing {
-    publications {
-        create<MavenPublication>("pluginMaven") {
-            this.groupId = "com.github.gtcno"
-        }
-    }
 }
 
