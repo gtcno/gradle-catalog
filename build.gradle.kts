@@ -4,7 +4,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "no.nav.dagpenger"
+group = "no.gtc.gradle"
 version = "0.0.1"
 
 
