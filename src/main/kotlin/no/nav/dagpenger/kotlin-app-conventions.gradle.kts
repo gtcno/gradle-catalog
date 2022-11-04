@@ -1,7 +1,0 @@
-plugins{
-    application
-    kotlin("jvm")
-}
-
-
-
