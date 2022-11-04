@@ -15,4 +15,4 @@ ktor-server = {group = "io.ktor", name = "ktor-server", version.ref = "ktor" }
 telegram = {group = "io.github.kotlin-telegram-bot.kotlin-telegram-bot", name = "telegram", version = "6.0.3" }
 
 [plugins]
-kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version = "1.6.10" }
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version = "1.7.20" }
