@@ -1,16 +1,21 @@
 plugins {
     `maven-publish`
-    `kotlin-dsl`
+    `version-catalog`
 }
 
 group = "no.gtc.gradle"
 version = "0.0.1"
 
-dependencies {
+catalog {
+    versionCatalog {
+        from(files("gradle/libs.versions.toml"))
+    }
 }
-
-
 
 publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["versionCatalog"])
+        }
+    }
 }
-
