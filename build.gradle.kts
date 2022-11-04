@@ -8,6 +8,11 @@ plugins {
 group = "no.gtc.gradle"
 version = "SNAPSHOT"
 
+repositories {
+    mavenCentral()
+    maven("https://jitpack.io")
+}
+
 catalog {
     versionCatalog {
         from(files("gradle/libs.versions.toml"))
