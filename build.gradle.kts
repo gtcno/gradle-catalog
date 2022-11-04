@@ -25,8 +25,8 @@ publishing {
             name = "GitHubPackages"
             url = URI.create("https://maven.pkg.github.com/gtcno/gradle-catalog")
             credentials {
-                username = System.getenv("GITHUB_ACTOR1")
-                password = System.getenv("GITHUB_TOKEN1")
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
             }
         }
     }
