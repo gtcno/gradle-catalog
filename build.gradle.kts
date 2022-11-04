@@ -17,6 +17,7 @@ catalog {
 publishing {
     publications {
         create<MavenPublication>("maven") {
+            gr
             from(components["versionCatalog"])
         }
     }
@@ -25,8 +26,8 @@ publishing {
             name = "GitHubPackages"
             url = URI.create("https://maven.pkg.github.com/gtcno/gradle-catalog")
             credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
+                username = System.getenv("GITHUB_ACTOR1")
+                password = System.getenv("GITHUB_TOKEN1")
             }
         }
     }
