@@ -1,17 +1,22 @@
 [versions]
-gcp-bom = "24.0.0"
+gcp-bom = "26.0.0"
 jackson = "2.13"
 kotlin = "1.7.20"
 ktor = "1.6.8"
+ktlint = "0.43.2"
 
 [libraries]
-konfig = {group = "com.natpryce", name = "konfig", version = "1.6.10.0" }
-kotlin-bom = {group = "org.jetbrains.kotlin", name = "kotlin-bom", version.ref = "kotlin" }
-ktor-client-auth-jvm = {group = "io.ktor", name = "ktor-client-auth-jvm", version.ref = "ktor" }
-ktor-client-cio = {group = "io.ktor", name = "ktor-client-cio", version.ref = "ktor" }
-ktor-client-jackson = {group = "io.ktor", name = "ktor-client-jackson", version.ref = "ktor" }
-ktor-client-logging-jvm = {group = "io.ktor", name = "ktor-client-logging-jvm", version.ref = "ktor" }
-ktor-server = {group = "io.ktor", name = "ktor-server", version.ref = "ktor" }
+konfig = { group = "com.natpryce", name = "konfig", version = "1.6.10.0" }
+kotlin-bom = { group = "org.jetbrains.kotlin", name = "kotlin-bom", version.ref = "kotlin" }
+ktor-client-auth-jvm = { group = "io.ktor", name = "ktor-client-auth-jvm", version.ref = "ktor" }
+ktor-client-cio = { group = "io.ktor", name = "ktor-client-cio", version.ref = "ktor" }
+ktor-client-jackson = { group = "io.ktor", name = "ktor-client-jackson", version.ref = "ktor" }
+ktor-client-logging-jvm = { group = "io.ktor", name = "ktor-client-logging-jvm", version.ref = "ktor" }
+ktor-server = { group = "io.ktor", name = "ktor-server", version.ref = "ktor" }
+urnlib = {group ="de.slub-dresden", name = "urnlib", version = "2.0.1"}
 
 [plugins]
-kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version = "1.7.20" }
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+spotless = { id = "com.diffplug.spotless", version = "5.14.0" }
+shadow = { id = "com.github.johnrengelman.shadow", version = "7.1.2" }
+
