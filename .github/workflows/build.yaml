@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set release tag
         run: |
           export TAG_NAME="$(TZ="Europe/Oslo" date +%Y.%m.%d-%H.%M).$(echo $GITHUB_SHA | cut -c 1-12)"
@@ -29,7 +29,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, 'ci skip')
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
       - name: Set release tag
         run: |
           export TAG_NAME="$(TZ="Europe/Oslo" date +%Y.%m.%d-%H.%M).$(echo $GITHUB_SHA | cut -c 1-12)"
