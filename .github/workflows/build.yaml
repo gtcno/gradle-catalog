@@ -28,23 +28,9 @@ jobs:
           release_name: ${{ env.RELEASE_TAG }}
           body: |
             Changes in this Release
-            ${{ env.RELEASE_NOTE }}"
+            ${{ env.RELEASE_NOTE }}
           draft: false
           prerelease: false
-  publish:
-    name: Publish to Github package
-    needs: release
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, 'ci skip')
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set release tag
-        run: |
-          export TAG_NAME="$(TZ="Europe/Oslo" date +%Y.%m.%d-%H.%M).$(echo $GITHUB_SHA | cut -c 1-12)"
-          echo "RELEASE_TAG=$TAG_NAME" >> $GITHUB_ENV
       - uses: actions/setup-java@v3
         with:
           java-version: '17'
