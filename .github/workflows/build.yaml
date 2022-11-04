@@ -18,7 +18,7 @@ jobs:
         run: |
           text="$(git --no-pager log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%h %s")"
           echo "::set-output name=CHANGELOG::$text"
-      - name:Create Release
+      - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
