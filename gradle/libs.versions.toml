@@ -12,7 +12,6 @@ ktor-client-cio = {group = "io.ktor", name = "ktor-client-cio", version.ref = "k
 ktor-client-jackson = {group = "io.ktor", name = "ktor-client-jackson", version.ref = "ktor" }
 ktor-client-logging-jvm = {group = "io.ktor", name = "ktor-client-logging-jvm", version.ref = "ktor" }
 ktor-server = {group = "io.ktor", name = "ktor-server", version.ref = "ktor" }
-telegram = {group = "io.github.kotlin-telegram-bot.kotlin-telegram-bot", name = "telegram", version = "6.0.3" }
 
 [plugins]
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version = "1.7.20" }
