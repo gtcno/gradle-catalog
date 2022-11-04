@@ -17,7 +17,6 @@ catalog {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            gr
             from(components["versionCatalog"])
         }
     }
