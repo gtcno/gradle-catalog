@@ -1,8 +1,38 @@
 name: Build
 on: push
 jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set release tag
+        run: |
+          export TAG_NAME="$(TZ="Europe/Oslo" date +%Y.%m.%d-%H.%M).$(echo $GITHUB_SHA | cut -c 1-12)"
+          echo "RELEASE_TAG=$TAG_NAME" >> $GITHUB_ENV
+      - name: Set changelog
+        id: changelog
+        # (Escape newlines see https://github.com/actions/create-release/issues/25)
+        run: |
+          export TEXT="$(git --no-pager log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%h %s")"
+          echo "RELEASE_NOTE=$TEXT" >> $GITHUB_ENV
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          release_name: ${{ env.RELEASE_TAG }}
+          body: |
+            Changes in this Release
+            ${{ env.RELEASE_NOTE }}"
+          draft: false
+          prerelease: false
   publish:
     name: Publish to Github package
+    needs: release
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, 'ci skip')
     permissions:
@@ -14,23 +44,6 @@ jobs:
         run: |
           export TAG_NAME="$(TZ="Europe/Oslo" date +%Y.%m.%d-%H.%M).$(echo $GITHUB_SHA | cut -c 1-12)"
           echo "RELEASE_TAG=$TAG_NAME" >> $GITHUB_ENV
-      - name: Conventional Changelog Action
-        id: changelog
-        uses: TriPSs/conventional-changelog-action@v3
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          output-file: "false"
-      - name: Create Release
-        permissions:
-        contents: read
-        packages: write
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ env.RELEASE_TAG }}
-          release_name: ${{  env.RELEASE_TAG }}
-          body: ${{ steps.changelog.outputs.clean_changelog }}
       - uses: actions/setup-java@v3
         with:
           java-version: '17'
@@ -43,3 +56,4 @@ jobs:
           arguments: publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  '
