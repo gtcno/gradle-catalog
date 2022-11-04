@@ -2,7 +2,7 @@
 gcp-bom = "24.0.0"
 jackson = "2.13"
 kotlin = "1.6.0"
-ktor = "1.6.5"
+ktor = "1.6.8"
 
 [libraries]
 konfig = {group = "com.natpryce", name = "konfig", version = "1.6.10.0" }
