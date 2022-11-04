@@ -7,6 +7,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - run: git fetch --prune --unshallow
       - name: Set release tag
         run: |
           export TAG_NAME="$(TZ="Europe/Oslo" date +%Y.%m.%d-%H.%M).$(echo $GITHUB_SHA | cut -c 1-12)"
