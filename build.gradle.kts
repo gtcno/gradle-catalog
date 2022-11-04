@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "no.gtc.gradle"
-version = "0.0.1"
+version = "SNAPSHOT"
 
 catalog {
     versionCatalog {
@@ -17,6 +17,7 @@ catalog {
 publishing {
     publications {
         create<MavenPublication>("maven") {
+            version = System.getenv("RELEASE_TAG") ?: version
             from(components["versionCatalog"])
         }
     }
