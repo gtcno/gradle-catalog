@@ -14,12 +14,12 @@ jobs:
         run: |
           export TAG_NAME="$(TZ="Europe/Oslo" date +%Y.%m.%d-%H.%M).$(echo $GITHUB_SHA | cut -c 1-12)"
           echo "RELEASE_TAG=$TAG_NAME" >> $GITHUB_ENV
-      - name: Set changelog
-        id: changelog
-        # (Escape newlines see https://github.com/actions/create-release/issues/25)
-        run: |
-          export CHANGELOG="$(git --no-pager log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%h %s")"
-          echo "CHANGELOG=$CHANGELOG" >> $GITHUB_ENV
+#      - name: Set changelog
+#        id: changelog
+#        # (Escape newlines see https://github.com/actions/create-release/issues/25)
+#        run: |
+#          export CHANGELOG="$(git --no-pager log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%h %s")"
+#          echo "CHANGELOG=$CHANGELOG" >> $GITHUB_ENV
       - uses: actions/setup-java@v3
         with:
           java-version: '17'
@@ -40,8 +40,8 @@ jobs:
         with:
           tag_name: ${{ env.RELEASE_TAG }}
           release_name: ${{ env.RELEASE_TAG }}
-          body: |
-            Changes in this Release
-            $CHANGELOG
+#          body: |
+#            Changes in this Release
+#            $CHANGELOG
           draft: false
           prerelease: false
