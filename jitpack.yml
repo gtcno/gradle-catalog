@@ -1,0 +1,4 @@
+install:
+   - echo "Running a custom install command"
+   - ./gradlew -Pgroup=com.github.gtcno -Pversion=$VERSION publishToMavenLocal
+
