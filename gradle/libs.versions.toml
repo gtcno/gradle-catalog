@@ -1,7 +1,7 @@
 [versions]
 gcp-bom = "26.0.0"
 jackson = "2.13"
-kotlin = "1.7.20"
+kotlin = "1.7.21"
 ktor = "1.6.8"
 ktlint = "0.43.2"
 
