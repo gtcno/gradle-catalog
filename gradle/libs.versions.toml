@@ -6,7 +6,7 @@ ktor = "2.2.2"
 ktlint = "0.43.2"
 
 [libraries]
-dp-biblioteker-oauth2-klient = { group = "com.github.navikt.dp-biblioteker", name = "oauth2-klient", version = "2023.03.10-16.50.57688052c862" }
+dp-biblioteker-oauth2-klient = { group = "com.github.navikt.dp-biblioteker", name = "oauth2-klient", version = "2023.11.27-13.50.d478414fd10d" }
 dp-biblioteker-image-utils = { group = "com.github.navikt.dp-biblioteker", name = "image-utils", version = "2023.03.10-16.50.57688052c862" }
 konfig = { group = "com.natpryce", name = "konfig", version = "1.6.10.0" }
 kotlin-bom = { group = "org.jetbrains.kotlin", name = "kotlin-bom", version.ref = "kotlin" }
