@@ -15,7 +15,7 @@ ktor-client-cio = { group = "io.ktor", name = "ktor-client-cio", version.ref = "
 ktor-client-jackson = { group = "io.ktor", name = "ktor-client-jackson", version.ref = "ktor" }
 ktor-client-logging-jvm = { group = "io.ktor", name = "ktor-client-logging-jvm", version.ref = "ktor" }
 ktor-server = { group = "io.ktor", name = "ktor-server", version.ref = "ktor" }
-urnlib = { group = "de.slub-dresden", name = "urnlib", version = "2.0.1" }
+urnlib = { group = "de.slub-dresden", name = "urnlib", version = "3.0.0" }
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
